@@ -570,6 +570,15 @@ export class ModelRuntime implements Models {
 		return check ? { configured: true, source: "environment", label: check.source } : { configured: false };
 	}
 
+	getProviderAuthMethods(providerId: string): readonly AuthType[] {
+		const provider = this.models.getProvider(providerId);
+		if (!provider) return [];
+		return [
+			...(provider.auth.apiKey?.login ? (["api_key"] as const) : []),
+			...(provider.auth.oauth ? (["oauth"] as const) : []),
+		];
+	}
+
 	private async prepareRequest<TOptions extends ProviderRequestOptions & ModelsRequestTransforms>(
 		model: Model<Api>,
 		options: TOptions | undefined,

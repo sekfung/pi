@@ -1,5 +1,6 @@
 // Core session management
 
+export * from "./application/index.ts";
 export { type Args, parseArgs } from "./cli/args.ts";
 
 // Config paths

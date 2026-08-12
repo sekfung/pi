@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Added a versioned framed-CBOR application protocol for presentation-neutral snapshots, workflow intents, Host Interactions, receipts, and ordered events.
+
 ## [0.84.1] - 2026-08-07
 
 ## [0.84.0] - 2026-08-06

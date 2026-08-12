@@ -1,0 +1,43 @@
+{
+	"name": "@earendil-works/pi-gui",
+	"version": "0.84.1",
+	"description": "Experimental native desktop interface for pi",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"clean": "shx rm -rf dist",
+		"dev": "vite",
+		"build": "vite build",
+		"build:workspace": "npm --prefix ../tui run build && npm --prefix ../telemetry run build && npm --prefix ../ai run build:offline && npm --prefix ../agent run build && npm --prefix ../protocol run build && npm --prefix ../client run build && npm --prefix ../coding-agent run build",
+		"sidecar": "node scripts/build-sidecar.mjs",
+		"tauri": "tauri",
+		"test": "vitest --run",
+		"typecheck": "tsgo -p tsconfig.json --noEmit"
+	},
+	"dependencies": {
+		"@earendil-works/pi-protocol": "^0.84.1",
+		"@fontsource-variable/geist": "5.3.0",
+		"@tauri-apps/api": "2.11.1",
+		"@tauri-apps/plugin-dialog": "2.7.2",
+		"class-variance-authority": "0.7.1",
+		"clsx": "2.1.1",
+		"lucide-react": "1.28.0",
+		"grok-mermaid": "0.2.2",
+		"react": "19.2.8",
+		"react-dom": "19.2.8",
+		"tailwind-merge": "3.6.0"
+	},
+	"devDependencies": {
+		"@tailwindcss/vite": "4.3.3",
+		"@tauri-apps/cli": "2.11.4",
+		"@types/react": "19.2.18",
+		"@types/react-dom": "19.2.4",
+		"@vitejs/plugin-react": "6.0.5",
+		"shadcn": "4.16.1",
+		"shx": "0.4.0",
+		"tailwindcss": "4.3.3",
+		"typescript": "5.9.3",
+		"vite": "8.2.0",
+		"vitest": "4.1.9"
+	}
+}
