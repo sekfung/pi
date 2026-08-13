@@ -6,7 +6,7 @@ The application opens local projects and shares Pi sessions, settings, credentia
 
 ## Development
 
-Install repository dependencies with `npm install --ignore-scripts`, hydrate model data with `npm run hydrate:model-data`, then run:
+Install repository dependencies with `npm install --ignore-scripts`, then run:
 
 ```sh
 npm --prefix packages/gui run tauri -- dev

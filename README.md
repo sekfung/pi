@@ -53,8 +53,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines and [AGENTS.m
 
 ```bash
 npm install --ignore-scripts  # Install all dependencies without running lifecycle scripts
-npm run build         # Refresh model data, then build all packages
-npm run build:offline # Rebuild using existing model data without network access
+npm run build         # Build all packages from the versioned model snapshot
+npm run generate:models # Explicitly refresh the model snapshot from provider catalogs
 npm run check         # Lint, format, and type check
 ./test.sh            # Run tests (skips LLM-dependent tests without API keys)
 ./pi-test.sh         # Run pi from sources (can be run from any directory)
@@ -68,10 +68,10 @@ GitHub releases include a versioned source archive covered by the release's `SHA
 VERSION="<release-version>"
 tar -xzf "pi-${VERSION}-source.tar.gz"
 cd "pi-${VERSION}"
-./scripts/build-binaries.sh --offline-model-data --platform linux-x64 --out "$PWD/out"
+./scripts/build-binaries.sh --platform linux-x64 --out "$PWD/out"
 ```
 
-The source archive includes the generated provider model data used for the release. `--offline-model-data` builds with that snapshot instead of refreshing it from live provider catalogs. The script still installs dependencies, builds the monorepo, compiles the Bun executable, and stages its runtime assets. Package maintainers who provide dependencies separately can pass `--skip-install --skip-deps`.
+The source archive includes the generated provider model data used for the release, so builds do not contact live provider catalogs. The script still installs dependencies, builds the monorepo, compiles the Bun executable, and stages its runtime assets. Package maintainers who provide dependencies separately can pass `--skip-install --skip-deps`.
 
 ## Supply-chain hardening
 
